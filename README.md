@@ -24,6 +24,21 @@ pnpm dev
 
 内置中文字体是经过精简的 Noto Sans SC，许可见 [OFL.txt](src/assets/fonts/OFL.txt)。不同手机的系统字体、通知图标和微信版本可能不同；可通过字体微调、上传字体和状态栏图片进行校准。示例头像及链接封面从项目参考图中截取，可在编辑器中替换。
 
+## Windows 便携版
+
+将便携压缩包完整解压，双击“朋友圈生产.exe”。启动器会打开默认浏览器；使用结束后点击“停止并退出”或关闭启动器窗口，即可停止服务。便携版无需安装 Node.js，需要系统提供 .NET Framework 4.5 或更新版本。
+
+草稿属于浏览器的本地数据，不同浏览器之间不会自动共享。如需使用 Codex 内置浏览器中的草稿，启动便携版后在该浏览器访问 `http://127.0.0.1:5178/`。如果端口被占用，先关闭占用它的服务。
+
+在已安装开发依赖的 Windows 项目目录中，可以生成并验证便携包：
+
+```powershell
+pwsh -NoProfile -File scripts/package-windows.ps1
+pwsh -NoProfile -File scripts/test-windows-package.ps1
+```
+
+输出位于项目的 `release` 目录。打包脚本不会覆盖已有的同名目录或压缩包。
+
 ## 验证
 
 ```sh
